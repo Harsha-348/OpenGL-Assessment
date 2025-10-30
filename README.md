@@ -1,4 +1,4 @@
-# Real-Time Edge Detection App
+<img width="662" height="728" alt="Screenshot 2025-10-31 at 1 55 20 AM" src="https://github.com/user-attachments/assets/d6d6c05d-3965-4524-9661-0cb9644db3f3" /># Real-Time Edge Detection App
 
 This Android application captures camera frames, processes them using OpenCV with C++ (via JNI), and displays the processed output using OpenGL ES. It also includes a web-based viewer for visualizing the edge detection results.
 
@@ -49,19 +49,99 @@ This Android application captures camera frames, processes them using OpenCV wit
 
 ```
 EdgeDetectionApp/
-├── app/                      # Android app module
-│   ├── src/main/
-│   │   ├── cpp/             # Native C++ code
-│   │   ├── java/            # Java/Kotlin code
-│   │   └── res/             # Resources
-│   └── build.gradle         # App-level build configuration
-├── web/                     # Web viewer
-│   ├── src/                 # TypeScript source
-│   ├── public/              # Static files
-│   ├── package.json         # NPM dependencies
-│   └── webpack.config.js    # Webpack configuration
-└── README.md                # This file
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── cpp/                  # Native C++ code
+│   │   │   │   ├── CMakeLists.txt    # CMake configuration
+│   │   │   │   ├── edge_detector.cpp # Edge detection implementation
+│   │   │   │   └── renderer.cpp      # OpenGL rendering
+│   │   │   ├── java/
+│   │   │   │   └── com/example/edgedetection/
+│   │   │   │       ├── MainActivity.kt
+│   │   │   │       ├── EdgeDetector.kt
+│   │   │   │       └── gl/
+│   │   │   │           ├── GLRenderer.kt
+│   │   │   │           └── GLTextureView.kt
+│   │   │   └── res/
+│   │   │       └── layout/
+│   │   │           └── activity_main.xml
+│   ├── build.gradle
+│   └── proguard-rules.pro
+├── web/                              # Web viewer
+│   ├── src/
+│   │   ├── index.ts
+│   │   └── edge-detection.worker.ts
+│   ├── public/
+│   │   └── index.html
+│   ├── package.json
+│   └── webpack.config.js
+└── build.gradle
 ```
+
+## Implementation Plan
+
+1. Native C++ Integration
+
+a. Edge Detection (edge_detector.cpp)
+- Implement using OpenCV C++ API
+- Optimize for real-time performance
+- Support multiple edge detection algorithms
+
+b. OpenGL Rendering (renderer.cpp)
+- Set up EGL context
+- Implement texture rendering
+- Handle screen orientation changes
+
+c. JNI Interface
+- Create efficient data transfer between Java/Kotlin and C++
+- Handle memory management properly
+
+2. Android Components
+   
+a. Camera Integration
+- Use CameraX for modern camera API
+- Handle permissions
+- Support multiple camera resolutions
+  
+b. UI Implementation
+- TextureView for camera preview
+- Controls for algorithm selection
+- Performance metrics display
+
+c. Native Bridge
+- JNI interface implementation
+- Thread management
+- Memory management
+
+3. Web Viewer 
+
+a. WebSocket Server
+- Implement in Kotlin using Ktor
+- Handle multiple client connections
+- Stream processed frames
+
+b. Web Client
+- TypeScript implementation
+- Real-time video display
+- Controls and statistics
+  
+4. Documentation & Best Practices
+
+a. Project Setup
+- Detailed README.md
+- Build instructions
+- Dependencies list
+
+b. Code Documentation
+- JavaDoc/KDoc for public APIs
+- Inline comments for complex logic
+- Architecture overview
+
+c. Testing
+- Unit tests for critical components
+- Integration tests
+- Performance benchmarks
 
 ## How It Works
 
@@ -78,6 +158,26 @@ The app is optimized for real-time performance with the following optimizations:
 - Background thread processing to prevent UI jank
 - Efficient memory management
 
-## License
+## Android Architecture
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   CameraX API   │───▶│   OpenCV JNI    │───▶│  OpenGL ES 2.0  │
+└─────────────────┘    └─────────────────┘    └──────┬--────────┘
+                                                     │
+┌─────────────────┐    ┌─────────────────┐    ┌──────▼────────┐
+│  WebSocket      │◀───│   MainActivity  │◀───│ GLSurfaceView │
+│  Server         │    │                 │    │               │
+└─────────────────┘    └─────────────────┘    └───────────────┘
+
+## TypeScript Components
+
+┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+│  WebSocketClient    │───▶│  FrameProcessor     │───▶│  CanvasRenderer     │
+└─────────────────────┘    └─────────────────────┘    └─────────────────────┘
+         ▲                                                      │
+         └─────────────────── Stats Display ◄───────────────────┘
+
+## Screenshots
+
+<img width="662" height="728" alt="Screenshot 2025-10-31 at 1 55 20 AM" src="https://github.com/user-attachments/assets/519ba95d-6d92-41eb-8d46-f677b6accc5a" />
+
