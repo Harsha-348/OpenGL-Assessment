@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Detection Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .viewer {
+            margin: 20px 0;
+            text-align: center;
+        }
+        canvas {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edge Detection Viewer</h1>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div>FPS</div>
+                <div id="fps" class="stat-value">0</div>
+            </div>
+            <div class="stat-item">
+                <div>Resolution</div>
+                <div id="resolution" class="stat-value">0x0</div>
+            </div>
+            <div class="stat-item">
+                <div>Status</div>
+                <div id="status" class="stat-value">Idle</div>
+            </div>
+        </div>
+        
+        <div class="viewer">
+            <canvas id="output"></canvas>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <button id="loadSample" style="padding: 8px 16px; margin: 0 5px;">Load Sample Image</button>
+            <button id="toggleEffect" style="padding: 8px 16px; margin: 0 5px;">Toggle Edge Detection</button>
+        </div>
+    </div>
+    
+    <script src="bundle.js"></script>
+</body>
+</html>
