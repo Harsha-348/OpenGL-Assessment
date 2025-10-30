@@ -165,7 +165,7 @@ The app is optimized for real-time performance with the following optimizations:
 
 ## TypeScript Components
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/f1d51b2a-6dfc-48ef-b007-0a99bdb855b9" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/5e352f25-e94d-4ff3-85d2-6692b5ee1862" />
 
 
 ## Screenshots
