@@ -1,4 +1,4 @@
-<img width="662" height="728" alt="Screenshot 2025-10-31 at 1 55 20 AM" src="https://github.com/user-attachments/assets/d6d6c05d-3965-4524-9661-0cb9644db3f3" /># Real-Time Edge Detection App
+# Real-Time Edge Detection App
 
 This Android application captures camera frames, processes them using OpenCV with C++ (via JNI), and displays the processed output using OpenGL ES. It also includes a web-based viewer for visualizing the edge detection results.
 
@@ -179,5 +179,6 @@ The app is optimized for real-time performance with the following optimizations:
 
 ## Screenshots
 
-<img width="662" height="728" alt="Screenshot 2025-10-31 at 1 55 20 AM" src="https://github.com/user-attachments/assets/519ba95d-6d92-41eb-8d46-f677b6accc5a" />
+/<img width="665" height="665" alt="Screenshot 2025-10-31 at 3 17 33 AM" src="https://github.com/user-attachments/assets/da822c61-3499-4666-9685-28fed11c975e" />
+
 
