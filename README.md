@@ -160,22 +160,13 @@ The app is optimized for real-time performance with the following optimizations:
 
 ## Android Architecture
 
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   CameraX API   │───▶│   OpenCV JNI    │───▶│  OpenGL ES 2.0  │
-└─────────────────┘    └─────────────────┘    └──────┬--────────┘
-                                                     │
-┌─────────────────┐    ┌─────────────────┐    ┌──────▼────────┐
-│  WebSocket      │◀───│   MainActivity  │◀───│ GLSurfaceView │
-│  Server         │    │                 │    │               │
-└─────────────────┘    └─────────────────┘    └───────────────┘
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/00628cde-e468-4197-b073-3482fe514a1c" />
+
 
 ## TypeScript Components
 
-┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
-│  WebSocketClient    │───▶│  FrameProcessor     │───▶│  CanvasRenderer     │
-└─────────────────────┘    └─────────────────────┘    └─────────────────────┘
-         ▲                                                      │
-         └─────────────────── Stats Display ◄───────────────────┘
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/f1d51b2a-6dfc-48ef-b007-0a99bdb855b9" />
+
 
 ## Screenshots
 
